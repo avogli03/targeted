@@ -1,0 +1,11 @@
+node_modules/
+.next/
+.tmp/
+.cache/
+build/
+dist/
+*.log
+.env
+.env.*
+.strapi/
+*.tsbuildinfo

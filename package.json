@@ -1,0 +1,16 @@
+{
+  "name": "targeted-project",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "dev": "npm --workspace frontend run dev",
+    "develop": "npm --workspace backend run develop",
+    "dev:frontend": "npm run dev",
+    "dev:backend": "npm run develop",
+    "build:frontend": "npm --workspace frontend run build",
+    "build:backend": "npm --workspace backend run build"
+  }
+}
