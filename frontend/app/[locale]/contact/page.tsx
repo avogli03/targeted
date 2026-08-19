@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { CircleUser, Mail, PhoneCall, SendHorizontal } from "lucide-react";
-import { Newsletter } from "@/components/Newsletter";
+import { Footer } from "@/components/Footer";
 import { SiteHeader } from "@/components/SiteHeader";
 import { isLocale, locales } from "@/lib/site";
 import type { Locale } from "@/lib/content";
@@ -108,12 +108,7 @@ export default function ContactPage({ params }: { params: { locale: string } }) 
         </form>
       </section>
 
-      <Newsletter locale={locale} />
-
-      <footer>
-        <strong>targeted</strong>
-        <span>Business, lifestyle, wellbeing and marketing stories.</span>
-      </footer>
+      <Footer locale={locale} />
     </main>
   );
 }

@@ -23,9 +23,12 @@ export function SiteHeader({
           <span>Targeted</span>
         </Link>
         <div className="header-actions">
+          <a className="subscribe-button" href="#newsletter">
+            {copy.subscribe}
+          </a>
           <LanguageSwitch locale={locale} label={copy.language} hrefs={languageHrefOverrides} />
           <button className="icon-button" aria-label="Search">
-            <Search size={21} />
+            <Search size={18} />
           </button>
         </div>
       </div>

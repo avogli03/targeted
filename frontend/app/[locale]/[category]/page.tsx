@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { ArticleCard } from "@/components/ArticleCard";
-import { Newsletter } from "@/components/Newsletter";
+import { Footer } from "@/components/Footer";
 import { SiteHeader } from "@/components/SiteHeader";
 import { getArticles } from "@/lib/strapi";
 import { categorySlugs, categoryTitle, isCategorySlug, isLocale, locales } from "@/lib/site";
@@ -41,12 +41,7 @@ export default async function CategoryPage({ params }: { params: { locale: strin
         )}
       </section>
 
-      <Newsletter locale={locale} />
-
-      <footer>
-        <strong>targeted</strong>
-        <span>Business, lifestyle, wellbeing and marketing stories.</span>
-      </footer>
+      <Footer locale={locale} />
     </main>
   );
 }

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Newsletter } from "@/components/Newsletter";
+import { Footer } from "@/components/Footer";
 import { SiteHeader } from "@/components/SiteHeader";
 import { getArticleWithAlternates } from "@/lib/strapi";
 import { categoryTitle, isCategorySlug, isLocale } from "@/lib/site";
@@ -63,12 +63,7 @@ export default async function ArticlePage({
         <div className="article-content">{bodyBlocks.map(renderBlock)}</div>
       </article>
 
-      <Newsletter locale={locale} />
-
-      <footer>
-        <strong>targeted</strong>
-        <span>Business, lifestyle, wellbeing and marketing stories.</span>
-      </footer>
+      <Footer locale={locale} />
     </main>
   );
 }

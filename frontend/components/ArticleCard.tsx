@@ -6,18 +6,16 @@ import { type Locale, ui } from "@/lib/content";
 export function ArticleCard({
   article,
   locale,
-  compact = false,
-  feature = false
+  compact = false
 }: {
   article: DisplayArticle;
   locale: Locale;
   compact?: boolean;
-  feature?: boolean;
 }) {
   const articleHref = `/${locale}/${article.categorySlug}/${article.slug}`;
 
   return (
-    <article className={`${feature ? "story-card feature-card" : "story-card"}${compact ? " compact" : ""}`}>
+    <article className={compact ? "story-card compact" : "story-card"}>
       <Link className="thumb" href={articleHref} aria-label={article.title}>
         <Image src={article.image} alt="" fill unoptimized sizes="(max-width: 760px) 100vw, 33vw" />
       </Link>

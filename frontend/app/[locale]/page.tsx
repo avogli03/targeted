@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { ArticleCard } from "@/components/ArticleCard";
+import { Footer } from "@/components/Footer";
 import { HeroSlider } from "@/components/HeroSlider";
-import { Newsletter } from "@/components/Newsletter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { type Locale, ui } from "@/lib/content";
 import { getArticles } from "@/lib/strapi";
@@ -30,13 +30,8 @@ export default async function LocaleHome({ params }: { params: { locale: string 
       <SiteHeader locale={locale} />
 
       {leadArticles.length > 0 && (
-        <section className="top-grid" aria-label={copy.leadLabel}>
+        <section aria-label={copy.leadLabel}>
           <HeroSlider articles={leadArticles} locale={locale} />
-          <div className="top-stack">
-            {[...leadArticles.slice(1), ...latest].slice(0, 4).map((article) => (
-              <ArticleCard key={article.id} article={article} locale={locale} feature />
-            ))}
-          </div>
         </section>
       )}
 
@@ -69,12 +64,7 @@ export default async function LocaleHome({ params }: { params: { locale: string 
         );
       })}
 
-      <Newsletter locale={locale} />
-
-      <footer>
-        <strong>targeted</strong>
-        <span>Business, lifestyle, wellbeing and marketing stories.</span>
-      </footer>
+      <Footer locale={locale} />
     </main>
   );
 }

@@ -1,10 +1,11 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { ArticleCard } from "@/components/ArticleCard";
 import { type DisplayArticle } from "@/lib/strapi";
-import { type Locale } from "@/lib/content";
+import { type Locale, ui } from "@/lib/content";
 
 export function HeroSlider({ articles, locale }: { articles: DisplayArticle[]; locale: Locale }) {
   const [index, setIndex] = useState(0);
@@ -26,15 +27,28 @@ export function HeroSlider({ articles, locale }: { articles: DisplayArticle[]; l
   if (!count) return null;
 
   const active = articles[index];
+  const articleHref = `/${locale}/${active.categorySlug}/${active.slug}`;
 
   return (
-    <div className="hero-slide">
-      <ArticleCard key={active.id} article={active} locale={locale} feature />
+    <div className="hero-band">
       {count > 1 && (
-        <div className="slider-controls">
-          <button type="button" className="slider-arrow" aria-label="Previous story" onClick={() => go(-1)}>
-            <ChevronLeft size={18} />
-          </button>
+        <button type="button" className="hero-edge-arrow left" aria-label="Previous story" onClick={() => go(-1)}>
+          <ChevronLeft size={22} />
+        </button>
+      )}
+
+      <div className="hero-text-panel">
+        <div className="tag-row">
+          <span>{active.category}</span>
+        </div>
+        <h1>
+          <Link href={articleHref}>{active.title}</Link>
+        </h1>
+        <p>{active.excerpt}</p>
+        <Link className="read-more" href={articleHref}>
+          {ui[locale].readMore}
+        </Link>
+        {count > 1 && (
           <div className="slider-dots">
             {articles.map((article, i) => (
               <button
@@ -46,10 +60,17 @@ export function HeroSlider({ articles, locale }: { articles: DisplayArticle[]; l
               />
             ))}
           </div>
-          <button type="button" className="slider-arrow" aria-label="Next story" onClick={() => go(1)}>
-            <ChevronRight size={18} />
-          </button>
-        </div>
+        )}
+      </div>
+
+      <Link className="hero-image-panel" href={articleHref} aria-label={active.title}>
+        <Image key={active.id} src={active.image} alt="" fill unoptimized sizes="(max-width: 900px) 100vw, 55vw" priority />
+      </Link>
+
+      {count > 1 && (
+        <button type="button" className="hero-edge-arrow right" aria-label="Next story" onClick={() => go(1)}>
+          <ChevronRight size={22} />
+        </button>
       )}
     </div>
   );
