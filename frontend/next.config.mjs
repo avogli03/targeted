@@ -13,6 +13,10 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "harmonious-prize-e83f608dba.strapiapp.com"
+      },
+      {
+        protocol: "https",
+        hostname: "*.onrender.com"
       }
     ]
   }
