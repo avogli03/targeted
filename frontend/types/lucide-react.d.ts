@@ -7,6 +7,8 @@ declare module "lucide-react" {
 
   export const Menu: ComponentType<LucideProps>;
   export const Search: ComponentType<LucideProps>;
+  export const ChevronLeft: ComponentType<LucideProps>;
+  export const ChevronRight: ComponentType<LucideProps>;
   export const Mail: ComponentType<LucideProps>;
   export const CalendarDays: ComponentType<LucideProps>;
   export const CircleUser: ComponentType<LucideProps>;
