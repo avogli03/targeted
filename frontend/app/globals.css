@@ -131,6 +131,32 @@ textarea {
   gap: 10px;
 }
 
+.search-form {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.search-form input {
+  width: 150px;
+  min-height: 36px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  color: var(--ink);
+  background: #ffffff;
+  font-size: 13px;
+}
+
+.search-form input:focus {
+  outline: 2px solid var(--brand);
+  outline-offset: -1px;
+}
+
+.search-form button {
+  flex-shrink: 0;
+}
+
 .language-switch {
   display: inline-flex;
   border: 1px solid var(--line);
@@ -809,6 +835,10 @@ textarea {
 
   .subscribe-button {
     display: none;
+  }
+
+  .search-form input {
+    width: 90px;
   }
 
   .nav-bar {

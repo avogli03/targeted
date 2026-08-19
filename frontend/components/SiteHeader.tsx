@@ -23,13 +23,16 @@ export function SiteHeader({
           <span>Targeted</span>
         </Link>
         <div className="header-actions">
+          <form className="search-form" action={`/${locale}/search`}>
+            <input type="search" name="q" placeholder={copy.searchPlaceholder} aria-label={copy.searchPlaceholder} />
+            <button type="submit" className="icon-button" aria-label={copy.searchPlaceholder}>
+              <Search size={18} />
+            </button>
+          </form>
           <a className="subscribe-button" href="#newsletter">
             {copy.subscribe}
           </a>
           <LanguageSwitch locale={locale} label={copy.language} hrefs={languageHrefOverrides} />
-          <button className="icon-button" aria-label="Search">
-            <Search size={18} />
-          </button>
         </div>
       </div>
       <nav className="nav-bar" aria-label="Primary navigation">

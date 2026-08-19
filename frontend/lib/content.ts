@@ -31,7 +31,10 @@ export const ui = {
     emailPlaceholder: "Email address",
     subscribe: "Subscribe",
     language: "Language",
-    leadLabel: "Featured"
+    leadLabel: "Featured",
+    searchPlaceholder: "Search",
+    searchResultsFor: "Search results for",
+    noResults: "No articles matched your search."
   },
   sq: {
     readMore: "Lexo më shumë",
@@ -47,7 +50,10 @@ export const ui = {
     emailPlaceholder: "Adresa e emailit",
     subscribe: "Abonohu",
     language: "Gjuha",
-    leadLabel: "Kryesore"
+    leadLabel: "Kryesore",
+    searchPlaceholder: "Kërko",
+    searchResultsFor: "Rezultatet e kërkimit për",
+    noResults: "Nuk u gjet asnjë artikull për këtë kërkim."
   }
 } satisfies Record<Locale, Record<string, string>>;
 
