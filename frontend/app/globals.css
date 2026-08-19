@@ -199,8 +199,61 @@ footer {
   background: #dddddd;
 }
 
-.feature-card:first-child .thumb {
+.hero-slide {
+  position: relative;
+}
+
+.hero-slide .feature-card .thumb {
   aspect-ratio: 16 / 9;
+}
+
+.slider-controls {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.slider-arrow {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  background: rgba(5, 5, 5, 0.35);
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.slider-arrow:hover {
+  background: rgba(5, 5, 5, 0.55);
+}
+
+.slider-dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.slider-dots button {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: width 0.2s ease, border-radius 0.2s ease;
+}
+
+.slider-dots button.active {
+  width: 20px;
+  border-radius: 4px;
+  background: #ffffff;
 }
 
 .thumb img {
@@ -228,13 +281,18 @@ footer {
 .tag-row span {
   display: inline-flex;
   align-items: center;
-  min-height: 28px;
-  padding: 0 12px;
-  background: var(--black);
-  color: #ffffff;
+  min-height: 22px;
+  padding: 0;
+  background: transparent;
+  color: var(--brand-dark);
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 800;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
+}
+
+.feature-card .tag-row span {
+  color: #ffffff;
 }
 
 .story-body h3 {
@@ -247,7 +305,7 @@ footer {
   hyphens: auto;
 }
 
-.top-grid > .feature-card:first-child .story-body h3 {
+.hero-slide .feature-card .story-body h3 {
   font-size: clamp(28px, 4vw, 44px);
   line-height: 1.13;
 }
@@ -269,18 +327,31 @@ footer {
 
 .read-more {
   display: inline-flex;
-  min-height: 38px;
+  min-height: auto;
   align-items: center;
   justify-content: center;
   align-self: flex-start;
   margin-top: auto;
-  padding: 0 18px;
-  background: var(--black);
-  color: #ffffff;
-  border-radius: 18px;
+  padding: 0 0 2px;
+  background: transparent;
+  color: var(--brand-dark);
+  border-radius: 0;
+  border-bottom: 2px solid transparent;
   font-size: 12px;
   font-weight: 800;
   text-transform: uppercase;
+}
+
+.read-more:hover {
+  border-bottom-color: var(--brand-dark);
+}
+
+.feature-card .read-more {
+  color: #ffffff;
+}
+
+.feature-card .read-more:hover {
+  border-bottom-color: #ffffff;
 }
 
 .content-band,

@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { ArticleCard } from "@/components/ArticleCard";
+import { HeroSlider } from "@/components/HeroSlider";
 import { Newsletter } from "@/components/Newsletter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { type Locale, ui } from "@/lib/content";
@@ -30,7 +31,7 @@ export default async function LocaleHome({ params }: { params: { locale: string 
 
       {leadArticles.length > 0 && (
         <section className="top-grid" aria-label={copy.leadLabel}>
-          <ArticleCard article={leadArticles[0]} locale={locale} feature />
+          <HeroSlider articles={leadArticles} locale={locale} />
           <div className="top-stack">
             {[...leadArticles.slice(1), ...latest].slice(0, 4).map((article) => (
               <ArticleCard key={article.id} article={article} locale={locale} feature />
